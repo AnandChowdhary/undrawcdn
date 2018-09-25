@@ -9,7 +9,7 @@ module.exports = () => {
 	for (icon in icons) {
 		const slug = slugify(icon, { lower: true });
 		const url = icons[icon];
-		const file = fs.createWriteStream(`${slug}.svg`);
+		const file = fs.createWriteStream(`illustrations/${slug}.svg`);
 		https.get(url, response => response.pipe(file));
 	}
 };
