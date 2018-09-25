@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 	for (icon in icons) illustrations.push(slugify(icon, { lower: true }) + ".svg");
 	res.json({ illustrations });
 });
+
 app.get("/:illustration", (req, res) => {
 	const fs = require("fs");
 	const illustration = req.params.illustration;
@@ -33,5 +34,23 @@ app.get("/:illustration", (req, res) => {
 	}
 });
 
+app.get("/:color/:illustration", (req, res) => {
+	const fs = require("fs");
+	const illustration = req.params.illustration;
+	const filePath = __dirname + `/illustrations/${illustration}`;
+	if (fs.existsSync(filePath)) {
+		res.set("Cache-Control", "public, max-age=31557600");
+		res.type("image/svg+xml");
+		res.send(
+			fs
+				.readFileSync(filePath, "utf-8")
+				.toString()
+				.replace(/\#6c63ff/g, "#" + req.params.color)
+		);
+	} else {
+		res.status(404).json({ error: "404" });
+	}
+});
+
 app.set("json spaces", 4);
-app.listen(process.env.PORT || 3000, () => console.log("UndrawCDN running!"));
+app.listen(process.env.PORT || 3001, () => console.log("UndrawCDN running!"));

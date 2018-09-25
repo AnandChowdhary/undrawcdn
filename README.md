@@ -19,7 +19,7 @@ Visiting the `/` endpoint will return a list of all available illustrations:
     "confirmation.svg",
     "fatherhood.svg",
     "dashboard.svg",
-    ...
+    "..."
 ```
 
 ## Illustrations
@@ -28,6 +28,12 @@ And then you can request any of the files, like this:
 
 ```html
 <img src="https://undraw.oswaldlabs.com/startled.svg">
+```
+
+And color them to your choice like this by specifying the hex color of the color (without the hash) before the image:
+
+```html
+<img src="https://undraw.oswaldlabs.com/1abc9c/startled.svg">
 ```
 
 ## License
