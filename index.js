@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const RateLimit = require("express-rate-limit");
+const slugify = require("slugify");
 
 const app = express();
 app.use(express.json());
@@ -15,7 +16,20 @@ const limiter = new RateLimit({
 app.use(limiter);
 
 app.get("/", (req, res) => {
-	res.json({ endpoints: "anand" });
+	const icons = require("./icons.json");
+	const illustrations = [];
+	for (icon in icons) illustrations.push(slugify(icon, { lower: true }) + ".svg");
+	res.json({ illustrations });
+});
+app.get("/:illustration", (req, res) => {
+	const fs = require("fs");
+	const illustration = req.params.illustration;
+	const filePath = __dirname + `/illustrations/${illustration}`;
+	if (fs.existsSync(filePath)) {
+		res.sendFile(filePath);
+	} else {
+		res.status(404).json({ error: "404" });
+	}
 });
 
 app.set("json spaces", 4);
