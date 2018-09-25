@@ -1,0 +1,24 @@
+{
+  "name": "undrawcdn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AnandChowdhary/undrawcdn",
+  "author": "Anand Chowdhary <anandchowdhary@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "onchange": "^4.1.0",
+    "prettier": "^1.14.3"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start:local": "nodemon index.js",
+    "pm2": "pm2 start index.js",
+    "prettier": "onchange '**/*.{js,vue,scss}' -- prettier --write {{changed}}"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-rate-limit": "^3.2.0"
+  }
+}
