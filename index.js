@@ -26,6 +26,7 @@ app.get("/:illustration", (req, res) => {
 	const illustration = req.params.illustration;
 	const filePath = __dirname + `/illustrations/${illustration}`;
 	if (fs.existsSync(filePath)) {
+		res.set("Cache-Control", "public, max-age=31557600");
 		res.sendFile(filePath);
 	} else {
 		res.status(404).json({ error: "404" });
