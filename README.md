@@ -39,3 +39,7 @@ And color them to your choice like this by specifying the hex color of the color
 ## License
 
 All illustrations are created by Katerina Limpitsouni, released under the MIT License (https://undraw.co/license), just like this service.
+
+## Privacy
+
+This service uses Google Analytics to track usage. No personally identifyable information is collected. The `undrawcdn` is a single-use cookie to send data to GA, `_gid` and `_ga` are cookies used by Google Analytics, and [`__cfduid`](https://support.cloudflare.com/hc/en-us/articles/200170156-What-does-the-Cloudflare-cfduid-cookie-do-) is a cookie used by CloudFlare for security that doesn't collect any identifyable information. Users can opt out of GA [here](https://tools.google.com/dlpage/gaoptout?) but the CloudFlare cookie is strictly necessary for the CDN to work.
