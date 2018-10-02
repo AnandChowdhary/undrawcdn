@@ -7,9 +7,6 @@ const slugify = require("slugify");
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(ga("UA-79176349-9", {
-	cookie_name: "undrawcdn"
-}));
 app.enable("trust proxy");
 
 const limiter = new RateLimit({
