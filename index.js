@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const ga = require("node-ga");
+const isNamedCssColor = require("is-named-css-color");
 const RateLimit = require("express-rate-limit");
 const slugify = require("slugify");
 
@@ -42,11 +42,12 @@ app.get("/:color/:illustration", (req, res) => {
 	if (fs.existsSync(filePath)) {
 		res.set("Cache-Control", "public, max-age=31557600");
 		res.type("image/svg+xml");
+		const color = isNamedCssColor(req.params.color) ? req.params.color : ("#" + req.params.color);
 		res.send(
 			fs
 				.readFileSync(filePath, "utf-8")
 				.toString()
-				.replace(/\#6c63ff/g, "#" + req.params.color)
+				.replace(/\#6c63ff/g, color)
 		);
 	} else {
 		res.status(404).json({ error: "404" });
