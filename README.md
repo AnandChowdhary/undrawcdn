@@ -36,6 +36,12 @@ And color them to your choice like this by specifying the hex color of the color
 <img src="https://undraw.oswaldlabs.com/1abc9c/startled.svg">
 ```
 
+You can also specify the CSS color name instead of hex code, if you prefer:
+
+```html
+<img src="https://undraw.oswaldlabs.com/purple/gifts.svg">
+```
+
 ## License
 
 All illustrations are created by Katerina Limpitsouni, released under the MIT License (https://undraw.co/license), just like this service.
