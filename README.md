@@ -1,5 +1,9 @@
 # Undraw CDN
 
+⚠️ **This service has been retired**
+
+Undraw illustrations, including all the ones in this repository, were originally MIT licensed. This means that I was free to make this CDN/API service. However, in light of their new license, which makes the illustrations open source but doesn't allow compilation and scraping, I'm retiring this service. [See issue #1](https://github.com/AnandChowdhary/undrawcdn/issues/1).
+
 A CDN/API service for Undraw, the MIT-licensed illustrations by Katerina Limpitsouni.
 
 ## [undraw.oswaldlabs.com](https://undraw.oswaldlabs.com)
